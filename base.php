@@ -1,4 +1,5 @@
 <?php
+include('database-connexion.php');
     $errors = '';
     $myemail = 'j.caillon@codeur.online';//<-----Put Your email address here.
     if(empty($_POST['name'])  || 
@@ -22,6 +23,9 @@
     if( empty($errors))
 
 {
+
+$query = "INSERT INTO `contact` (nom, email, message, enregistrement) VALUES ('$name', '$email_address', '$message', NOW())";
+$result = mysqli_query($connection, $query);
 
 $to = $myemail;
 
